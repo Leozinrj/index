@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page - Curso de Barbeiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo do Popup */
+        .popup {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: rgba(255, 255, 255, 0.6); /* Fundo do pop-up mais claro */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra suave */
+            opacity: 0.95; /* Opacidade do pop-up */
+            transition: transform 0.3s ease; /* Suave animação ao aparecer */
+        }
+
+        .popup-content h2 {
+            font-family: 'Poppins', sans-serif; /* Fonte do título do pop-up */
+            color: #333; /* Cor do texto */
+        }
+
+        .close-btn {
+            background-color: #FFB800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .close-btn:hover {
+            background-color: #e5a700;
+        }
+
+        /* Estilo do conteúdo */
+        .content {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            width: 600px;
+            margin: auto; /* Centraliza o conteúdo */
+            text-align: center; /* Centraliza o texto dentro do conteúdo */
+        }
+
+        .payment-methods img {
+            max-width: 300px; /* Diminui o tamanho da imagem */
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 20px; /* Espaço acima da imagem */
+        }
+
+        h1 {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+            text-align: center; /* Centraliza o texto do título */
+            font-family: 'Roboto', sans-serif; /* Fonte mais elegante */
+        }
+
+        /* Botão de compra */
+        .cta-btn {
+            background-color: #FFB800;
+            color: white;
+            font-size: 20px; /* Tamanho da fonte aumentado */
+            font-weight: bold; /* Texto em negrito */
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px; /* Cantos levemente arredondados */
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s; /* Transição de transformação */
+            font-family: 'Poppins', sans-serif; /* Fonte para o botão */
+        }
+
+        .cta-btn:hover {
+            background-color: #e5a700;
+            transform: scale(1.05); /* Leve aumento no botão ao passar o mouse */
+        }
+
+        /* Estilo do iframe */
+        .video-section {
+            margin-bottom: 20px; /* Espaço abaixo do vídeo */
+        }
+
+        /* Estilo das imagens de navegação */
+        .image-carousel {
+            position: relative;
+            max-width: 100%; /* Largura máxima */
+            margin-top: 20px; /* Espaço acima do carrossel */
+        }
+
+        .carousel-img {
+            width: 100%; /* Largura total do vídeo */
+            height: 315px; /* Altura fixa para manter a proporção */
+            object-fit: contain; /* Mantém a proporção e cobre o espaço */
+            display: none; /* Oculta todas as imagens por padrão */
+        }
+
+        .carousel-img.active {
+            display: block; /* Mostra a imagem ativa */
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .arrow:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        /* Adicionando uma classe para o título do carrossel */
+        .carousel-title {
+            font-family: 'Poppins', sans-serif; /* Fonte para o título do carrossel */
+            color: white; /* Alterado para branco */
+            margin-bottom: 10px;
+            text-align: center; /* Centraliza o texto do título do carrossel */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Aprenda como se tornar um Barbeiro Profissional</h1>
+            <div class="video-section">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/rMTEQHG7zdU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="payment-methods">
+                <img src="https://cursobarber.com.br/wp-content/uploads/2023/01/metodos-200-1.png-1.webp" alt="Métodos de Pagamento" style="max-width: 100%; height: auto;">
+            </div>
+            <button class="cta-btn" id="buyBtn">Comprar Agora</button>
+            
+            <!-- Seção do carrossel de imagens -->
+            <div class="image-carousel">
+                <h2 class="carousel-title">Veja Nossos Produtos</h2>
+                <img src="https://elevelife.vteximg.com.br/arquivos/ids/159754-1000-1000/lesscarbs-1cx-1000x1000.jpg?v=638152019388330000" class="carousel-img active" alt="Imagem 1">
+                <img src="https://elevelife.vteximg.com.br/arquivos/ids/159755-1000-1000/lesscarbs-natural-1000x1000.jpg?v=638152019522600000" class="carousel-img" alt="Imagem 2">
+                <img src="https://elevelife.vteximg.com.br/arquivos/ids/159756-1000-1000/lesscarbs-paciente-1000x1000.jpg?v=638152019650730000" class="carousel-img" alt="Imagem 3">
+                <img src="https://elevelife.vteximg.com.br/arquivos/ids/159757-1000-1000/lesscarbs-tabela-1000x1000.jpg?v=638152019764470000" class="carousel-img" alt="Imagem 4"> <!-- Nova imagem adicionada -->
+                <button class="arrow arrow-left" id="prevBtn">&#10094;</button>
+                <button class="arrow arrow-right" id="nextBtn">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup para a compra -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Formulário de Compra</h2>
+            <form id="purchaseForm">
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" required><br><br>
+                <label for="email">E-mail:</label><br>
+                <input type="email" id="email" required><br><br>
+                <label for="payment">Método de Pagamento:</label><br>
+                <select id="payment" required>
+                    <option value="">Selecione...</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                    <option value="boleto">Boleto</option>
+                </select><br><br>
+                <button type="submit" class="close-btn">Finalizar Compra</button>
+            </form>
+            <button class="close-btn" id="closePopup">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Abrir e fechar o popup
+        document.getElementById('buyBtn').onclick = function() {
+            document.getElementById('popup').style.display = 'flex'; // Muda para flex para centralizar
+        }
+
+        document.getElementById('closePopup').onclick = function() {
+            document.getElementById('popup').style.display = 'none'; // Fecha o popup
+        }
+
+        // Evento de envio do formulário
+        document.getElementById('purchaseForm').onsubmit = function(event) {
+            event.preventDefault(); // Impede o envio do formulário para fins de demonstração
+            alert('Compra finalizada com sucesso!'); // Mensagem de sucesso
+            document.getElementById('popup').style.display = 'none'; // Fecha o popup
+        }
+
+        // Carrossel de imagens
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel-img');
+
+        document.getElementById('nextBtn').onclick = function() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        document.getElementById('prevBtn').onclick = function() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>

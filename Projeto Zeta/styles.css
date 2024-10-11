@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    width: 600px;
+    text-align: center; /* Centraliza o texto dentro do conteúdo */
+}
+
+h1 {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center; /* Centraliza o texto do título */
+}
+
+.video-section {
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    background-color: #FFB800;
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px; /* Cantos levemente arredondados */
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s; /* Transição de transformação */
+}
+
+.cta-btn:hover {
+    background-color: #e5a700;
+    transform: scale(1.05); /* Leve aumento no botão ao passar o mouse */
+}
+
+.payment-methods {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.payment-methods img {
+    max-width: 1024px;
+    width: 100%;
+    border-radius: 5px;
+}
